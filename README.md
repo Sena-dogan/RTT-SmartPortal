@@ -9,7 +9,6 @@ Bu asistan, klasik bir müşteri ve araç listeleme ekranının çok ötesindedi
 
 Uygulama arayüzünden çeşitli kesitler:
 
-![Genel Bakış](./public/rtt1.jpg)
 ![Müşteri Analizi](./public/rtt2.jpg)
 ![AI Chat Asistanı](./public/rtt3.jpg)
 ![Dinamik Teklifler](./public/rtt4.jpg)
