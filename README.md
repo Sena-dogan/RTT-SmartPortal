@@ -1,19 +1,25 @@
 # 🚀 RTT SmartPortal: AI Destekli Servis Danışmanı Asistanı
-
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Google Gemini](https://img.shields.io/badge/Gemini_AI-4285F4?style=for-the-badge&logo=google&logoColor=white)
-
-Bursa Bayi - Servis Danışmanları için özel olarak geliştirilmiş, **Google Gemini AI** gücünü arkasına alan, yeni nesil ve akıllı bir danışman portalı. 
+ Servis Danışmanları için özel olarak geliştirilmiş, **gelişmiş yapay zeka (AI)** gücünü arkasına alan, yeni nesil ve akıllı bir danışman portalı. 
 
 Bu asistan, klasik bir müşteri ve araç listeleme ekranının çok ötesindedir. İçerdiği yapay zeka algoritmaları sayesinde müşteri verilerini analiz eder, riskleri önceden belirler ve karlılığı artıracak aksiyon önerilerinde bulunur.
 
 ---
 
+## 📸 Ekran Görüntüleri
+
+Uygulama arayüzünden çeşitli kesitler:
+
+![Genel Bakış](./public/rtt1.jpg)
+![Müşteri Analizi](./public/rtt2.jpg)
+![AI Chat Asistanı](./public/rtt3.jpg)
+![Dinamik Teklifler](./public/rtt4.jpg)
+![Detaylı Görünüm](./public/rtt5.jpg)
+
+---
+
 ## 🧠 Akıllı Yapay Zeka Özellikleri (AI Features)
 
-Projede aktif olarak yer alan ve servis yöneticilerinin/danışmanlarının yükünü hafifleten başlıca yapay zeka yetenekleri:
+Projeye entegre olan ve servis yöneticilerinin/danışmanlarının yükünü hafifleten başlıca yapay zeka yetenekleri:
 
 ### 1. 🚨 Erken Uyarı: Yüksek Terk (Churn) Riski Tahmini
 Sistem, müşterinin servise geliş sıklığı, yaşı, son işlem tarihi ve araç segmenti gibi verileri yapay zeka ile işleyerek **Müşteri Kaybı (Churn)** riskini hesaplar.
@@ -46,28 +52,15 @@ Projeyi bilgisayarınızda yerel ortamda çalıştırmak için aşağıdaki adı
    npm install
    ```
 
-2. Ortam Değişkenlerini ayarlayın:  
-   - Ana dizinde `.env` (veya `.env.local`) dosyası oluşturun.
-   - İçerisine sistemde yer alan Gemini API anahtarını ekleyin:
-     ```env
-     GEMINI_API_KEY=Sizin_Gemini_API_Anahtariniz
-     ```
-
-3. Geliştirme sunucusunu başlatın:
+2. Uygulamayı başlatın:
    ```bash
-   npm run dev
+   npm start
    ```
 
-Uygulamanız standart olarak `http://localhost:3000` veya konsolda belirtilen diğer bir portta çalışacaktır.
+Uygulamanız standart olarak `http://localhost:3000` portunda çalışacaktır.
 
 ---
 
-## 🌍 GitHub Pages Üzerinden Yayınlama (Deployment)
+## 🌍 Yayınlama (Deployment)
 
-Projenizi **GitHub Pages**'te otomatik derleyip canlıya almak için her şey hazırdır!
-
-1. Sitenizin çalışması için `vite.config.ts` içerisine `base: '/RTT-SmartPortal/'` yapılandırması eklenmiştir.
-2. GitHub deponuza (`Sena-dogan/RTT-SmartPortal`) gidin.
-3. **Settings > Action > Secrets and variables** altından `GEMINI_API_KEY` adında bir *Repository Secret* oluşturup API Anahtarınızı girin.
-4. **Settings > Pages > Build and deployment** altından *Source* kısmını `GitHub Actions` olarak ayarlayın.
-5. Kodunuzu `main` dalına push yaptığınız an, `.github/workflows/deploy.yml` tetiklenecek ve otomatik olarak sayfanızı derleyip yayına alacaktır.
+Projenin derleme ve yayınlama işlemleri CI/CD boru hatları (pipeline) aracılığıyla yönetilmek üzere yapılandırılmıştır. `main` dalına yapılan güncellemelerle birlikte otomatik olarak sunucuya yansıtılır.
