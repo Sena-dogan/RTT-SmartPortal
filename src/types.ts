@@ -13,6 +13,7 @@ export interface AIInsights {
     uyari_mesaji: string;
     onerilen_aksiyon: string;
   };
+  potansiyel_detayi?: string;
 }
 
 export interface VehicleRecord {
@@ -49,6 +50,9 @@ export interface VehicleRecord {
     birim_bayi_alis_fiyati: string;
     toplam_bayi_alis_fiyati: string;
     toplam_tavsiye_edilen_satis_fiyati: string;
+    potansiyel_tutar?: string;
+    gerceklesen_tutar?: string;
+    kacirilan_firsat?: string;
   };
   kampanya_ve_indirim_bilgileri: {
     kampanya_donemi: string;
@@ -64,6 +68,8 @@ export interface VehicleRecord {
     kayip_sadik_durumu: CustomerStatus;
     kriter_kontrol: string;
     genel_kontrol: number;
+    lead_source?: string;
+    oncelik?: 1 | 2 | 3 | 4;
   };
   call_status: CallStatus;
   bakim_nedeni: string;

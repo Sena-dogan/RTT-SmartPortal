@@ -18,7 +18,9 @@ import {
   TrendingUp,
   BellRing,
   Send,
-  MessageSquare
+  MessageSquare,
+  Tag,
+  Star
 } from 'lucide-react';
 import { initialData } from './data';
 import { VehicleRecord, CallStatus } from './types';
@@ -85,6 +87,26 @@ export default function App() {
 
   const getStatusColor = (status: string) => {
     return status === 'SADIK' ? 'bg-emerald-100 text-emerald-800 border-emerald-200' : 'bg-rose-100 text-rose-800 border-rose-200';
+  };
+
+  const getPriorityColor = (priority?: number) => {
+    switch (priority) {
+      case 1: return 'bg-blue-600 text-white border-blue-700 shadow-sm';
+      case 2: return 'bg-orange-500 text-white border-orange-600 shadow-sm';
+      case 3: return 'bg-orange-300 text-orange-900 border-orange-400';
+      case 4: return 'bg-slate-300 text-slate-700 border-slate-400';
+      default: return 'hidden';
+    }
+  };
+
+  const getPriorityLabel = (priority?: number) => {
+    switch (priority) {
+      case 1: return 'Prio 1';
+      case 2: return 'Prio 2';
+      case 3: return 'Prio 3';
+      case 4: return 'Prio 4';
+      default: return '';
+    }
   };
 
   const getCallStatusBadge = (status: CallStatus) => {
@@ -233,11 +255,27 @@ export default function App() {
                         </span>
                       )}
                     </div>
-                    <span className={`text-[10px] font-bold px-2 py-1 rounded-md border uppercase tracking-wide shrink-0 ${getStatusColor(item.sistem_ve_uygunluk_kontrolleri.kayip_sadik_durumu)}`}>
-                      {item.sistem_ve_uygunluk_kontrolleri.kayip_sadik_durumu}
-                    </span>
+                    <div className="flex flex-col items-end gap-1 shrink-0">
+                      <div className="flex gap-1">
+                        {item.sistem_ve_uygunluk_kontrolleri.oncelik && (
+                          <span className={`text-[10px] font-bold px-2 py-1 rounded-md border uppercase tracking-wide flex items-center gap-1 ${getPriorityColor(item.sistem_ve_uygunluk_kontrolleri.oncelik)}`}>
+                            {item.sistem_ve_uygunluk_kontrolleri.oncelik === 1 && <Star className="w-3 h-3 fill-current" />}
+                            {getPriorityLabel(item.sistem_ve_uygunluk_kontrolleri.oncelik)}
+                          </span>
+                        )}
+                        <span className={`text-[10px] font-bold px-2 py-1 rounded-md border uppercase tracking-wide ${getStatusColor(item.sistem_ve_uygunluk_kontrolleri.kayip_sadik_durumu)}`}>
+                          {item.sistem_ve_uygunluk_kontrolleri.kayip_sadik_durumu}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                   <div className="font-medium text-slate-900 mb-1 truncate">{item.musteri_bilgileri.adi_unvani}</div>
+                  {item.sistem_ve_uygunluk_kontrolleri.lead_source && (
+                    <div className="flex items-center gap-1 text-[10px] font-medium text-slate-500 bg-slate-100 w-fit px-2 py-0.5 rounded-full mb-2 border border-slate-200">
+                      <Tag className="w-3 h-3" />
+                      <span>Kaynak: {item.sistem_ve_uygunluk_kontrolleri.lead_source}</span>
+                    </div>
+                  )}
                   <div className="text-xs text-slate-500 mb-3 flex items-start gap-1">
                     <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
                     <span className="line-clamp-2">{item.bakim_nedeni}</span>
@@ -284,13 +322,21 @@ export default function App() {
                   {/* Header Card */}
                   <div className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-sm">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4">
-                      <div className="min-w-0">
+                      <div className="min-w-0 flex-1">
                         <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-1 break-words">{selectedVehicle.musteri_bilgileri.adi_unvani}</h3>
                         <p className="text-slate-500 font-mono text-sm">{selectedVehicle.musteri_bilgileri.vkn_tckn}</p>
                       </div>
-                      <span className={`self-start text-xs font-bold px-3 py-1.5 rounded-lg border uppercase tracking-wide shrink-0 ${getStatusColor(selectedVehicle.sistem_ve_uygunluk_kontrolleri.kayip_sadik_durumu)}`}>
-                        {selectedVehicle.sistem_ve_uygunluk_kontrolleri.kayip_sadik_durumu} MÜŞTERİ
-                      </span>
+                      <div className="flex flex-col sm:flex-row gap-2 shrink-0 items-end sm:items-start">
+                        {selectedVehicle.sistem_ve_uygunluk_kontrolleri.oncelik && (
+                          <span className={`self-start text-xs font-bold px-3 py-1.5 rounded-lg border uppercase tracking-wide flex items-center justify-center gap-1 ${getPriorityColor(selectedVehicle.sistem_ve_uygunluk_kontrolleri.oncelik)}`}>
+                            {selectedVehicle.sistem_ve_uygunluk_kontrolleri.oncelik === 1 && <Star className="w-3.5 h-3.5 fill-current" />}
+                            ÖNCELİK: {getPriorityLabel(selectedVehicle.sistem_ve_uygunluk_kontrolleri.oncelik)}
+                          </span>
+                        )}
+                        <span className={`self-start text-xs font-bold px-3 py-1.5 rounded-lg border uppercase tracking-wide ${getStatusColor(selectedVehicle.sistem_ve_uygunluk_kontrolleri.kayip_sadik_durumu)}`}>
+                          {selectedVehicle.sistem_ve_uygunluk_kontrolleri.kayip_sadik_durumu} MÜŞTERİ
+                        </span>
+                      </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4 border-y border-slate-100 my-4">
@@ -311,6 +357,27 @@ export default function App() {
                         <p className="font-medium text-rose-600 break-words">{selectedVehicle.bakim_nedeni}</p>
                       </div>
                     </div>
+
+                    {/* Customer Wallet Share & Potential Block */}
+                    {selectedVehicle.finans_ve_fiyatlandirma.potansiyel_tutar && (
+                      <div className="mb-4">
+                        <h4 className="text-sm font-bold text-slate-900 mb-2 uppercase tracking-wide">Müşteri Cüzdan Payı & Potansiyel</h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                          <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col justify-center">
+                            <span className="text-[11px] font-medium text-slate-500 mb-1">POTANSİYEL HARCAMA</span>
+                            <span className="text-lg font-bold text-slate-800">{selectedVehicle.finans_ve_fiyatlandirma.potansiyel_tutar}</span>
+                          </div>
+                          <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3 flex flex-col justify-center">
+                            <span className="text-[11px] font-medium text-emerald-600 mb-1">GERÇEKLEŞEN (BİZDE)</span>
+                            <span className="text-lg font-bold text-emerald-700">{selectedVehicle.finans_ve_fiyatlandirma.gerceklesen_tutar}</span>
+                          </div>
+                          <div className="bg-rose-50 border border-rose-200 rounded-xl p-3 flex flex-col justify-center">
+                            <span className="text-[11px] font-medium text-rose-600 mb-1">KAÇIRILAN FIRSAT</span>
+                            <span className="text-lg font-bold text-rose-700">{selectedVehicle.finans_ve_fiyatlandirma.kacirilan_firsat}</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
 
                     {/* Campaign Info */}
                     <div className="bg-blue-50 rounded-2xl p-4 border border-blue-100">
@@ -364,6 +431,19 @@ export default function App() {
                                 </p>
                               </div>
                             </div>
+                          </div>
+                        )}
+
+                        {/* Potential Details Insight */}
+                        {selectedVehicle.ai_insights.potansiyel_detayi && (
+                          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-indigo-200 shadow-sm">
+                            <h5 className="text-sm font-bold text-indigo-900 mb-2 flex items-center gap-2">
+                              <TrendingUp className="w-4 h-4" />
+                              Potansiyel Detay Analizi
+                            </h5>
+                            <ul className="text-sm text-indigo-800 list-disc list-inside">
+                              <li><span className="font-medium">İçgörü:</span> {selectedVehicle.ai_insights.potansiyel_detayi}</li>
+                            </ul>
                           </div>
                         )}
 

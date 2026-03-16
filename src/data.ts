@@ -34,7 +34,10 @@ export const initialData: VehicleRecord[] = [
       tahsil_tipi: "Müşteri",
       birim_bayi_alis_fiyati: "1,200.00 €",
       toplam_bayi_alis_fiyati: "1,200.00 €",
-      toplam_tavsiye_edilen_satis_fiyati: "1,600.00 €"
+      toplam_tavsiye_edilen_satis_fiyati: "1,600.00 €",
+      potansiyel_tutar: "4,000.00 €",
+      gerceklesen_tutar: "2,000.00 €",
+      kacirilan_firsat: "2,000.00 €"
     },
     kampanya_ve_indirim_bilgileri: {
       kampanya_donemi: "Mart",
@@ -49,7 +52,9 @@ export const initialData: VehicleRecord[] = [
       fiks_paket_uygunluk: "var",
       kayip_sadik_durumu: "SADIK",
       kriter_kontrol: "Uygun",
-      genel_kontrol: 1
+      genel_kontrol: 1,
+      lead_source: "Yeni Satış",
+      oncelik: 1
     },
     call_status: 'Bekliyor',
     bakim_nedeni: 'Tahmini 1M KM Ağır Bakımı (Turbo)',
@@ -64,7 +69,8 @@ export const initialData: VehicleRecord[] = [
         risk_seviyesi: "Yüksek",
         uyari_mesaji: "Mehmet Yılmaz Lojistik'in son 2 periyodik bakımı gecikti. Sanayiye yönelme riski yüksek.",
         onerilen_aksiyon: "Hemen %28 Turboşarj indirimi ve ücretsiz check-up teklif et."
-      }
+      },
+      potansiyel_detayi: "Müşteri filomuzdan yüksek adetli araç alımına rağmen, yürüyen aksam ve süspansiyon onarımlarını kendi kademesinde yapıyor. Potansiyel kayıp yüksek."
     }
   },
   {
@@ -100,7 +106,10 @@ export const initialData: VehicleRecord[] = [
       tahsil_tipi: "Müşteri",
       birim_bayi_alis_fiyati: "250.00 €",
       toplam_bayi_alis_fiyati: "500.00 €",
-      toplam_tavsiye_edilen_satis_fiyati: "750.00 €"
+      toplam_tavsiye_edilen_satis_fiyati: "750.00 €",
+      potansiyel_tutar: "1,200.00 €",
+      gerceklesen_tutar: "400.00 €",
+      kacirilan_firsat: "800.00 €"
     },
     kampanya_ve_indirim_bilgileri: {
       kampanya_donemi: "Şubat",
@@ -115,7 +124,9 @@ export const initialData: VehicleRecord[] = [
       fiks_paket_uygunluk: "var",
       kayip_sadik_durumu: "KAYIP",
       kriter_kontrol: "Uygun",
-      genel_kontrol: 0
+      genel_kontrol: 0,
+      lead_source: "TÜV Türk",
+      oncelik: 3
     },
     call_status: 'Bekliyor',
     bakim_nedeni: 'Fren Sistemi Değişim Periyodu',
@@ -130,7 +141,8 @@ export const initialData: VehicleRecord[] = [
         risk_seviyesi: "Yüksek",
         uyari_mesaji: "Müşteri 18 aydır yetkili servise uğramadı. Tamamen kaybedilmiş olabilir.",
         onerilen_aksiyon: "Agresif geri kazanım paketi (%35 indirim) ile doğrudan filo yöneticisini ara."
-      }
+      },
+      potansiyel_detayi: "Müşteri, yetkili servisimizden Fren Sistemi Parçalarını (Fren Aksamı Almıyor) satın almadığı için yüksek bir kaçırılan fırst potansiyeline sahip."
     }
   },
   {
@@ -166,7 +178,10 @@ export const initialData: VehicleRecord[] = [
       tahsil_tipi: "Müşteri",
       birim_bayi_alis_fiyati: "150.00 €",
       toplam_bayi_alis_fiyati: "150.00 €",
-      toplam_tavsiye_edilen_satis_fiyati: "220.00 €"
+      toplam_tavsiye_edilen_satis_fiyati: "220.00 €",
+      potansiyel_tutar: "5,500.00 €",
+      gerceklesen_tutar: "4,800.00 €",
+      kacirilan_firsat: "700.00 €"
     },
     kampanya_ve_indirim_bilgileri: {
       kampanya_donemi: "Nisan",
@@ -181,7 +196,9 @@ export const initialData: VehicleRecord[] = [
       fiks_paket_uygunluk: "var",
       kayip_sadik_durumu: "SADIK",
       kriter_kontrol: "Uygun",
-      genel_kontrol: 1
+      genel_kontrol: 1,
+      lead_source: "2. El",
+      oncelik: 1
     },
     call_status: 'Bekliyor',
     bakim_nedeni: '300.000 KM Periyodik Bakımı',
@@ -232,7 +249,10 @@ export const initialData: VehicleRecord[] = [
       tahsil_tipi: "Müşteri",
       birim_bayi_alis_fiyati: "2,100.00 €",
       toplam_bayi_alis_fiyati: "2,100.00 €",
-      toplam_tavsiye_edilen_satis_fiyati: "2,800.00 €"
+      toplam_tavsiye_edilen_satis_fiyati: "2,800.00 €",
+      potansiyel_tutar: "10,000.00 €",
+      gerceklesen_tutar: "1,500.00 €",
+      kacirilan_firsat: "8,500.00 €"
     },
     kampanya_ve_indirim_bilgileri: {
       kampanya_donemi: "Ocak",
@@ -247,7 +267,9 @@ export const initialData: VehicleRecord[] = [
       fiks_paket_uygunluk: "yok",
       kayip_sadik_durumu: "KAYIP",
       kriter_kontrol: "Uygun",
-      genel_kontrol: 0
+      genel_kontrol: 0,
+      lead_source: "Çağrı Merkezi",
+      oncelik: 4
     },
     call_status: 'Bekliyor',
     bakim_nedeni: 'Ağır Şanzıman Bakımı (1.5M KM)',
@@ -262,7 +284,8 @@ export const initialData: VehicleRecord[] = [
         risk_seviyesi: "Orta",
         uyari_mesaji: "Araç yaşlı ve ağır bakım maliyeti yüksek. Yan sanayi parça kullanım riski var.",
         onerilen_aksiyon: "Orijinal parçanın uzun ömür avantajını vurgula, ödeme kolaylığı sağla."
-      }
+      },
+      potansiyel_detayi: "Müşteri sarf malzemelerini dışarıdan temin ediyor. Filtre ve yağ değişimlerinde pazar payımız sıfır."
     }
   }
 ];
